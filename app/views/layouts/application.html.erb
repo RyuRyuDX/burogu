@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Burogu</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+    <style>
+        /* Add this style block */
+        #rainCanvas {
+            position: fixed; /* or absolute */
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+    </style>
+  </head>
+
+  <body>
+      <%= render 'shared/header' %>
+      <!-- Add a div to contain the yielded content -->
+      <div class="content">
+          <%= yield %>
+      </div>
+      <canvas id="rainCanvas"></canvas>
+      <%= render 'shared/footer' %>
+      <%= javascript_include_tag 'rain_animation' %>
+  </body>
+</html>

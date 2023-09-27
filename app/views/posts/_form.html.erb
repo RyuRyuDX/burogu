@@ -1,0 +1,41 @@
+<div class="min-h-screen bg-gray-100 py-6 flex flex-col justify-center sm:py-12">
+  <div class="relative py-3 sm:max-w-xl sm:mx-auto">
+    <div class="relative px-4 py-10 bg-white mx-8 md:mx-0 shadow rounded-3xl sm:p-10">
+      <div class="max-w-md mx-auto">
+        <div class="flex items-center space-x-5">
+          <div class="block font-medium text-xl text-center text-black">
+            新規投稿
+          </div>
+        </div>
+        <div class="mt-10">
+          <%= form_with(model: post) do |form| %>
+            <% if post.errors.any? %>
+              <div class="bg-red-100 text-red-700 p-4 rounded mb-6">
+                <h2 class="font-bold"><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+                <ul>
+                  <% post.errors.each do |error| %>
+                    <li><%= error.full_message %></li>
+                  <% end %>
+                </ul>
+              </div>
+            <% end %>
+
+            <div class="flex flex-col mb-6">
+              <%= form.label :title, class: "mb-1 text-xs sm:text-sm tracking-wide text-gray-600" %>
+              <%= form.text_field :title, class: "text-md block px-3 py-2 rounded-lg w-full bg-gray-100 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-transparent" %>
+            </div>
+
+            <div class="flex flex-col mb-6">
+              <%= form.label :content, class: "mb-1 text-xs sm:text-sm tracking-wide text-gray-600" %>
+              <%= form.rich_text_area :content, class: "resize text-md block px-3 py-2 rounded-lg w-full bg-gray-100 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-transparent" %>
+            </div>
+
+            <div class="flex w-full">
+              <%= form.submit "Submit", class: "w-full mt-2 bg-blue-600 hover:bg-blue-500 text-gray-100 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
