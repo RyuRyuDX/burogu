@@ -7,6 +7,9 @@
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+    
+    <%= turbo_include_tags %>
+    
     <style>
         /* Add this style block */
         #rainCanvas {
@@ -25,7 +28,7 @@
           <%= yield %>
       </div>
       <canvas id="rainCanvas"></canvas>
-      <%= render 'shared/footer' %>
       <%= javascript_include_tag 'rain_animation' %>
+      <%= render 'shared/footer' %>
   </body>
 </html>

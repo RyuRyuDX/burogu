@@ -1,6 +1,6 @@
 // app/javascript/packs/rain_animation.js
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("turbo:load", () => {
   const canvas = document.getElementById("rainCanvas");
   const ctx = canvas.getContext("2d");
   canvas.width = window.innerWidth;

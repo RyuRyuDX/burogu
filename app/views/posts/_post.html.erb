@@ -1,12 +1,9 @@
-<div id="<%= dom_id post %>">
-  <p>
-    <strong>Title:</strong>
-    <%= post.title %>
+<!-- app/views/posts/_post.html.erb -->
+<div class="m-6 p-6 bg-gray-600 rounded-xl w-full">
+  <p><%= post.title %></p>
+  <p><%= post.created_at %></p>
+  <p><%= post.content %></p>
+  <p class="mb-4">
+    <%= link_to "Show this post", post, class: "text-blue-500 hover:underline" %>
   </p>
-
-  <p>
-    <strong>Content:</strong>
-    <%= post.content %>
-  </p>
-
 </div>

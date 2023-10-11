@@ -23,5 +23,26 @@ services:
     tty: true
     depends_on:
       - db
+
+  esbuild:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: yarn esbuild --config=esbuild.config.js
+    environment:
+      - ESBUILD_WATCH=true
+    volumes:
+      - .:/burogu
+
+  tailwindcss:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: bash -c "bin/rails tailwindcss:watch"
+    volumes:
+      - .:/burogu
+    stdin_open: true
+    tty: true
+
 volumes:
   postgres_volume:
