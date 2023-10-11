@@ -9,6 +9,9 @@ RUN curl -sL https://deb.nodesource.com/setup_18.x | bash - \
   && echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list \
   && apt-get update -qq \
   && apt-get install -y nodejs yarn
+  
+# ESBuildのインストール
+RUN npm install esbuild --global
 
 # 作業ディレクトリを指定
 WORKDIR /burogu

@@ -74,3 +74,6 @@ end
 
 gem 'cssbundling-rails'
 gem 'jsbundling-rails'
+gem 'hotwire-rails'
+gem 'kaminari'
+gem 'devise'
